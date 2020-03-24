@@ -1,5 +1,6 @@
 # 日本麻将助手
 
+
 ## 主要功能
 
 - 对战时自动分析手牌，综合进张、打点等，给出推荐舍牌
@@ -14,7 +15,8 @@
 ### 支持平台
 
 - 雀魂网页版（[国服](https://www.majsoul.com/1/)√ | [日服](https://game.mahjongsoul.com)√ | [国际服](https://mahjongsoul.game.yo-star.com)√）
-- 天凤 [Web 版](http://tenhou.net/3/)
+- 天凤 [Web 版](https://tenhou.net/3/)
+
 
 ## 导航
 
@@ -28,27 +30,26 @@
 - [其他功能说明](#其他功能说明)
 - [参与讨论](#参与讨论)
 
+
 ## 安装
 
 分下面几步：
 
-1. 前往 [releases](https://github.com/EndlessCheng/mahjong-helper/releases/latest) 页面下载助手
+1. 前往 [releases](https://github.com/EndlessCheng/mahjong-helper/releases/latest) 页面下载助手。
 
-2. 雀魂需要浏览器允许本地证书。目前仅支持 Chrome 和 360 浏览器等使用了 Chrome 内核的浏览器：
+2. 雀魂需要浏览器允许本地证书，在浏览器地址栏中输入 `chrome://flags/#allow-insecure-localhost`，然后点击高亮那一项的「启用」按钮。该功能仅限基于 Chrome 内核开发的浏览器。
    
-   在浏览器中输入 `chrome://flags/#allow-insecure-localhost`，然后点击高亮那一项的「启用」按钮
+   （不同浏览器/版本的描述可能不一样，如果打开的页面是英文的话，高亮的就是 `Allow invalid certificates for resources loaded from localhost`，把它的 Disabled 改成 Enabled）
    
-   （不同浏览器/版本的描述可能不一样，如果是英文的话，高亮的是 `Allow invalid certificates for resources loaded from localhost`，把它的 Disabled 改成 Enabled）
-   
-   之后重启浏览器
+   之后重启浏览器。
 
-3. 安装浏览器扩展 Header Editor（[谷歌商城(需要翻墙)](https://chrome.google.com/webstore/detail/header-editor/eningockdidmgiojffjmkdblpjocbhgh?hl=zh) | [国内](https://www.chromefor.com/header-editor_v4-0-7/)）
+3. 安装浏览器扩展 Header Editor
    
-   （测试发现 Chrome 和 QQ 浏览器无法直接安装 .crx 文件，可以使用 360 浏览器打开 .crx 文件安装此扩展）
+   若能翻墙请前往 [谷歌商城](https://chrome.google.com/webstore/detail/header-editor/eningockdidmgiojffjmkdblpjocbhgh?hl=zh) 下载该扩展。或者 [手动安装该扩展](https://www.chromefor.com/header-editor_v4-0-7/)（若无法安装试试 360 浏览器）。
    
-   安装好扩展后点进该扩展的`管理`界面，点击`导入和导出`，在下载规则中填入 `https://jianyan.me/js/mahjong-helper.json`，点击右侧的下载按钮，然后点击下方的`保存`
+   安装好扩展后点进该扩展的`管理`界面，点击`导入和导出`，在下载规则中填入 `https://jianyan.me/js/mahjong-helper.json`，点击右侧的下载按钮，然后点击下方的`保存`。
 
-安装完成。请重新载入游戏页面。（注：可能需要较长时间才能加载完成，挂代理或使用手机热点可以解决此问题）
+安装完成。请重新载入游戏页面。若载入时一直黑屏，可能是下载 GitHub 文件过慢导致，请开启翻墙或者耐心等待。连接手机热点或可加快速度。
 
 在使用本助手前，建议先看一下本页面下方的[示例](#示例)。
 
@@ -65,15 +66,11 @@
 
 按照上述流程安装完成后，启动助手，选择平台即可。
 
-需要先启动本助手，再登录网页。
+需要先启动本助手，再打开网页。
 
 ### 注意事项
 
 终端有个小 bug，在使用中若鼠标点击到了空白处，可能会导致终端卡住，此时按下回车键就可以恢复正常。
-
-## 参与讨论
-
-吐槽本项目、日麻技术、麻将算法交流，欢迎加入 QQ 群 [375865038](https://jq.qq.com/?_wv=1027&k=5FyZOgH)
 
 
 ## 示例
@@ -82,7 +79,7 @@
 
 每个切牌选择会显示进张数、向听前进后的进张数、可以做的役种等等信息。
 
-助手会综合每个切牌选择的速度、打点、和率，速度越快，打点和率越高的越靠前。
+**助手会综合每个切牌选择的速度、打点、和率，速度越快，打点和率越高的越靠前。**
 
 每个切牌选择以如下格式显示：
 
@@ -113,7 +110,7 @@
 - 黄色：普通
 - 蓝色：较差
 
-来看看下面几个例子。
+来看看下面这几道何切题吧。
 
 **1\. 完全一向听**
 
@@ -127,11 +124,13 @@
 
 ![](img/example-Q106.png)
 
-单看进张，切 7s 是进张最广的。但是打牌的最终目的是和牌而不是听牌，切 7s 在听牌时可能会有愚型。
+这种情况要切哪一张牌呢？
+
+单看进张，切 7s 是进张最广的，但是从更长远的角度来看，切 7s 后会有愚型听牌的可能。
 
 一般来说，牺牲一点进张去换取更高的好型听牌率，或者更高的打点是可以接受的。
 
-如下图所示，这里展示了本助手对进张数、好型听牌和打点的综合判断。相比 7s，切 4m 虽然进张数少了四枚，但是能好型听牌，和牌率比 7s 要高，同时还有平和的可能，可以说在保证了速度的同时又兼顾了打点，是最平衡的一打。
+如下图所示，这里展示了本助手对进张数、好型听牌和打点的综合判断。相比 7s，切 4m 虽然进张数少了四枚，但是能好型听牌，综合和牌率比 7s 要高，同时还有平和的可能，可以说在保证了速度的同时又兼顾了打点，是最平衡的一打。所以切 4m 这个选项排在第一位。
 
 ![](img/example-speed2.png)
 
@@ -229,6 +228,12 @@
 - 额外显示打点估计（-s 参数，支持一向听和两向听）
     
     `mahjong-helper -d=38p33m -s 34568m 5678p 23567s`
+    
+    特别说明，也可以直接用 `mahjong-helper -d` 启动助手，可以显示更多的信息（适合高分辨率的屏幕）
+
+- 帮助信息（-h 参数）
+
+    `mahjong-helper -h`
 
 
 ## 如何获取 WebSocket 收发的消息
@@ -275,6 +280,11 @@
 [record.go](https://github.com/EndlessCheng/mahjong-helper/blob/master/platform/majsoul/record.go) 展示了使用 WebSocket 登录和下载牌谱的例子。
 
 考虑到还有观看牌谱这种获取前端 UI 事件的情况，还需修改额外的代码。在网页控制台输入 `GameMgr._inRelease = 0`，开启调试模式，通过雀魂已有的日志可以看到相关代码在哪。具体修改了哪些内容可以对比雀魂的 code.js 和我修改后的 [code.js](https://jianyan.me/majsoul/code-v0.1.4.js)。
+
+
+## 参与讨论
+
+吐槽本项目、日麻技术、麻将算法交流，欢迎加入 QQ 群 [375865038](https://jq.qq.com/?_wv=1027&k=5FyZOgH)
 
 
 ## License
